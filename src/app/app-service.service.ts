@@ -12,7 +12,7 @@ export class AppServiceService {
 
   constructor(private http: HttpClient) { }
 
-  getDataFromAPI(): Observable<any> {
+  getArticles(): Observable<any> {
     return this.http.get<any>(this.apiUrl);
 }
 }
