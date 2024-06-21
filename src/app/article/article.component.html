@@ -1,11 +1,19 @@
-
-<div>
-    <span>{{ articles.source}}</span> <br/>
-    <span>{{ articles.author }} </span><br/>
-    <span>{{ articles.title }}</span>
-    <span>{{ articles.description}}</span>
-    <span>{{ articles.url }}</span>
-    <span>{{ articles.urlToImage }}</span>
-    <span>{{ articles.publishedAt }}</span>
-    <span>{{ articles.content }}</span>
-</div>
+<article>
+    <div class="row">
+        <div class="col-sm-6 col-md-4">
+            <figure>
+                <img src={{article.urlToImage}}>
+            </figure>
+        </div>
+        <div class="col-sm-6 col-md-8">
+            <span class="label label-default"> <i class="bi bi-globe"></i> {{ article.source.name }}</span>
+            <h4>{{ article.title }}</h4>
+            <p> {{ article.description }} </p>
+            <section>
+                <i class="bi bi-person-circle"></i> {{ article.author }}
+                <i class="bi bi-calendar-date"></i> {{ article.publishedAt }}
+                <a href={{article.url}} class="btn btn-success btn-sm pull-right">Read more ... </a>
+            </section>
+        </div>
+    </div>
+</article>

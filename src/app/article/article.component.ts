@@ -8,5 +8,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './article.component.css'
 })
 export class ArticleComponent {
-  @Input() articles: any;
+  @Input() article: any;
 }
