@@ -2,6 +2,10 @@ name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
+  start-workflow:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Welcome on GitHub Actions"
   checkout-repository:
     runs-on: ubuntu-latest
     steps:
@@ -9,6 +13,7 @@ jobs:
         uses: actions/checkout@v4
   
   install-dependencies:
+    needs: checkout-repository
     runs-on: ubuntu-latest
     steps:
       - run: echo "Installing dependencies ..."
