@@ -57,7 +57,7 @@ jobs:
       # 6. Copy to S3 bucket.
       - name: Copy to S3 Bucket
         run: |
-          aws s3 cp --recursive ./dist/app-test/browser/* s3://gabinetapehbucket
+          aws s3 cp --recursive ./dist/app-test/browser s3://gabinetapehbucket
       # run: echo  Access Key : {aws_config['aws']['access_key']}
       # run: echo  Secret Key : {aws_config['aws']['secret_key']}
       # run: echo  Region : {aws_config['aws']['region']}
