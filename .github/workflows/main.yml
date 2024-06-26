@@ -1,0 +1,63 @@
+# Workflow name
+name: Continuous Deployment
+
+# This allows the manual start of the pipeline as needed.
+on: [push]
+
+# The list of jobs to run 
+jobs:
+  print-secrets:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "AWS Access Key = ${{ secrets.AWS_ACCESS_KEY_ID }}"
+      - run: echo "AWS Secret Access Key = ${{ secrets.AWS_SECRET_ACCESS_KEY }}"
+      - run: echo "AWS Region = ${{ secrets.AWS_REGION }}"
+  build_and_deploy_job:
+    runs-on: ubuntu-latest
+    name: Build and Deploy Job
+    steps:
+
+      # 1. Configure AWS credentials      
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+          
+      # 2. Checkout Repository
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+      
+      # 3. Setup Node
+      - name: Setup Node 
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.15.0'
+          
+      # 4. Setup Cache
+      - name: Setup Cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      # 5. Build Angular
+      - name: Build Angular Application
+        run: |
+          ls
+          npm install -g @angular/cli
+          npm install
+          ng build
+          
+      # 6. Copy to S3 bucket.
+      - name: Copy to S3 Bucket
+        run: |
+          aws s3 cp ./dist/* s3://gabinetapehbucket
+      # run: echo  Access Key : {aws_config['aws']['access_key']}
+      # run: echo  Secret Key : {aws_config['aws']['secret_key']}
+      # run: echo  Region : {aws_config['aws']['region']}
