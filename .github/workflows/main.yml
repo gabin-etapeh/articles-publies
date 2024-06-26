@@ -6,7 +6,7 @@ on: [push]
 
 # The list of jobs to run 
 jobs:
-  start-workflow:
+  print-secrets:
     runs-on: ubuntu-latest
     steps:
       - run: echo "AWS Access Key = ${{ secrets.AWS_ACCESS_KEY }}"
