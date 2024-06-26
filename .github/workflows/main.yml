@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "AWS Access Key = ${{ secrets.AWS_ACCESS_KEY }}"
-      - run: echo "AWS Secret Access Key = ${{ secrets.AWS_SECRET_ACCESS_KEY }}"
+      - run: echo "AWS Secret Access Key = ${{ secrets.AWS_ACCESS_SECRET_KEY }}"
       - run: echo "AWS Region = ${{ secrets.AWS_REGION }}"
   build_and_deploy_job:
     runs-on: ubuntu-latest
