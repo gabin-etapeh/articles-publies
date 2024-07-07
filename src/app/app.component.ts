@@ -9,8 +9,11 @@ import { ArticleComponent } from './article/article.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
+  title(title: any) {
+    throw new Error('Method not implemented.');
+  }
 
-  articles = [
+ articles = [
     {
       "source": {
         "id": null,
@@ -29,6 +32,7 @@ export class AppComponent implements OnInit {
         "id": "bild",
         "name": "Bild"
       },
+      "categorie":"tesla",
       "author": "Julian Stähle",
       "title": "Berlin - Tesla kracht mit Mutter und Baby in Klinik",
       "description": "Ein dramatischer Unfall hat sich am Samstag an einem Berliner Krankenhaus ereignet.  Eine frisch gebackene Mama und ihr Baby wurden dabei verletzt.",
@@ -42,6 +46,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Biztoc.com"
       },
+      "categorie":"tesla",
       "author": "abnormalreturns.com",
       "title": "Saturday links: your immediate vicinity",
       "description": "Autos\nOn the barriers to continued growth in EV sales in the U.S. (ft.com)\nCar dealerships around the country are dealing with a software outage. (theverge.com)\nFisker ($FSRN) has filed for bankruptcy. (wsj.com)\nThe Tesla ($TSLA) Model Y is the most made-in A…",
@@ -55,6 +60,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Digital Trends"
       },
+      "categorie":"microsoft",
       "author": "Christian de Looper",
       "title": "EVs may produce more emissions during manufacturing, but they quickly catch up",
       "description": "There's a narrative that EVs are just as bad for the environment due to battery manufacturing. Turns out, that's not even close to true.",
@@ -68,6 +74,7 @@ export class AppComponent implements OnInit {
         "id": "la-nacion",
         "name": "La Nacion"
       },
+      "categorie":"microsoft",
       "author": "LA NACION",
       "title": "Compró un Tesla y reveló por qué fue un error: “Lo odio, quiero un reembolso”",
       "description": "Una tiktoker se volvió viral en las redes sociales tras afirmar que su experiencia de manejo se volvió una tarea agotadora y poco práctica desde que adquirió un vehículo eléctrico de esta marca",
@@ -81,6 +88,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Somosxbox.com"
       },
+      "categorie":"apple",
       "author": "Alberto Martos",
       "title": "Fallout 4 Next Gen: como desbloquear todo el contenido del Enclave",
       "description": "Una de las novedades más importantes de la actualización es que se ha añadido nuevo contenido, relacionado con la línea de misiones \"Ecos del Pasado\". Es",
@@ -94,6 +102,7 @@ export class AppComponent implements OnInit {
         "id": "der-tagesspiegel",
         "name": "Der Tagesspiegel"
       },
+      "categorie":"apple",
       "author": "Der Tagesspiegel",
       "title": "Wegen „geopolitischer Spannungen“: Hugo Boss will Produktion aus Asien zurück nach Europa holen",
       "description": "Das Verschicken der Ware von einem Kontinent zum anderen hält Konzernchef Daniel Grieder nicht mehr für zeitgemäß, wie er der „Welt am Sonntag“ sagte.",
@@ -107,6 +116,7 @@ export class AppComponent implements OnInit {
         "id": "breitbart-news",
         "name": "Breitbart News"
       },
+      "categorie":"apple",
       "author": "Lucas Nolan, Lucas Nolan",
       "title": "EV Pink Slips: Elon Musk Has Slashed 14% of Tesla's Workforce",
       "description": "Recent internal records suggest that Tesla, Elon Musk's EV company has reduced its global workforce by more than 14 percent since the beginning of 2024, bringing its total headcount to just over 121,000 employees, including temporary workers.\nThe post EV Pink…",
@@ -120,6 +130,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Cnbeta.com.tw"
       },
+      "categorie":"apple",
       "author": "ytzong",
       "title": "特斯拉股东投票反对深海采矿禁令",
       "description": "Tesla的投资者批准了马斯克（Elon Musk）价值560亿美元的薪酬方案，但否决了暂停采购来自深海生态中的电动车电池金属的提议。激进投资者在年度股东大会上敦促这间车企加入其他头部同行之列，考虑深海采矿对环境的影响。\r\n\n推动企业社会责任的非牟利组织As You Sow（种瓜得瓜）去年12月提交了这份提议，请求股东暂时禁止采购来自深海海床的矿物。“我们认为Tesla作为电动汽车转型的门面，在这方面的表现落后了，”该组织的生物多样性专案协调员利维（Elizabeth Levy）说。6月13日，78%的Tesla…",
@@ -133,6 +144,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Observador.pt"
       },
+      "categorie":"microsoft",
       "author": "Simone Carvalho",
       "title": "Bank of America aconselha Ford, GM e Stellantis a sair da China",
       "description": "Analistas do Bank of America aconselham os três grandes construtores norte-americanos a abandonar o mercado chinês tão cedo quanto possível e a concentrar-se em baixar o preço dos veículos eléctricos.",
@@ -1313,6 +1325,10 @@ export class AppComponent implements OnInit {
     }
   ];
 
+  /*function searchElement(categorie:string,publishedAt:string) {
+    const filteredEvents = articles.filter(event => event.categorie === categorie && event.publishedAt=== publishedAt);
+  console.log(filteredEvents);
+  }*/
   ngOnInit(): void {
 
   }

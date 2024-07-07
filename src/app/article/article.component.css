@@ -10,3 +10,28 @@ figure img {
     width: 100%;
     height: 100%;
 }
+h3 {
+    margin: 2rem 0 2rem 0;
+}
+form {
+    display:inline-flex;
+    flex-direction:column;
+    max-width: 500px;
+  }
+  
+  label {
+    margin-bottom: 5px;
+  }
+  
+  select, input {
+    margin-bottom: 10px;
+  }
+  
+  button {
+    margin-top: 10px;
+  }
+  
+  #resultats {
+    margin-top: 20px;
+  }
+  
