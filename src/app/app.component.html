@@ -1,4 +1,27 @@
 <div class="container">
+    <h2>Retrouver un article</h2>
+    <form>
+      <div class="form-group">
+        <label for="category">Catégorie </label>
+        <select id="category" name="category">
+          <option value="">Sélectionnez une catégorie</option>
+          <option value="microsoft">Microsoft</option>
+          <option value="apple">Apple</option>
+          <option value="tesla">Tesla</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="publishedAt"> Date de publication </label>
+        <input type="date" id="publishedAt" name="date">
+      </div>
+      <div class="form-group">
+        <button type="submit" onclick="searchElements()">Rechercher</button>
+        <button type="reset" class="cancel">Annuler</button>
+      </div>
+    </form>
+  </div>
+
+<div class="container">
     <h3>Votre quotidien en ligne!!</h3>
 
     <div class="row">
@@ -9,26 +32,3 @@
         </div>
     </div>
 </div>
-<!--
-<div class="container">
-    <h2>Formulaire de recherche</h2>
-    <form>
-      <div class="form-group">
-        <label for="category">Catégorie :</label>
-        <select id="category" name="category">
-          <option value="">Sélectionnez une catégorie</option>
-          <option value="microsoft">Microsoft</option>
-          <option value="apple">Apple</option>
-          <option value="tesla">Tesla</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="publishedAt"> Date :</label>
-        <input type="date" id="publishedAt" name="date">
-      </div>
-      <div class="form-group">
-        <button type="submit" onclick="searchElements()">Valider</button>
-        <button type="reset" class="cancel">Annuler</button>
-      </div>
-    </form>
-  </div> -->
