@@ -1,9 +1,10 @@
 <div class="container">
     <h2>Retrouver un article</h2>
-    <form>
+    <!--
+    <form (ngSubmit)="filtrerResultats()">
       <div class="form-group">
         <label for="category">Catégorie </label>
-        <select id="category" name="category">
+        <select id="category" name="category" [(ngModel)]="selectedCategory">
           <option value="">Sélectionnez une catégorie</option>
           <option value="microsoft">Microsoft</option>
           <option value="apple">Apple</option>
@@ -12,7 +13,7 @@
       </div>
       <div class="form-group">
         <label for="publishedAt"> Date de publication </label>
-        <input type="date" id="publishedAt" name="date">
+        <input type="date" id="publishedAt" name="date" [(ngModel)]="publishedAt">
       </div>
       <div class="form-group">
         <button type="submit" onclick="searchElements()">Rechercher</button>
@@ -20,7 +21,18 @@
       </div>
     </form>
   </div>
-
+  
+<div *ngIf="resultatsFilters.length > 0">
+    <h2>Résultats filtrés :</h2>
+    <ul>
+      <li *ngFor="let item of resultatsFilters">
+        <p>Catégorie : {{ item.category }}</p>
+        <p>Date : {{ item.publishedAt }}</p>
+      </li>
+    </ul>
+  </div>
+  
+-->
 <div class="container">
     <h3>Votre quotidien en ligne!!</h3>
 

@@ -1,6 +1,18 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ArticleComponent } from './article/article.component';
+
+interface Objet {
+  category: string;
+  publishedAt: string;
+  source: any;
+  author:string;
+  title: string;
+  description: string;
+  url: any;
+  urlToImage: string;
+  content: string;
+}
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -13,12 +25,13 @@ export class AppComponent implements OnInit {
     throw new Error('Method not implemented.');
   }
 
-  articles = [
+  articles: Objet[]=[
     {
       "source": {
         "id": null,
         "name": "Biztoc.com"
       },
+      "category":"tesla",
       "author": "teslarati.com",
       "title": "Elon Musk pledges to ensure Tesla shareholders’ faith will be rewarded",
       "description": "Elon Musk has pledged that he would work as hard as he can to make sure that Tesla shareholders are rewarded for their trust in him. Musk’s sentiments were shared in a post on social media platform X.\nBack in 2018, Tesla shareholders approved a high-risk high…",
@@ -158,6 +171,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "The Daily Caller"
       },
+      "category": "apple",
       "author": "David Blackmon",
       "title": "DAVID BLACKMON: US EV Industry Shifts Back Into Reality Gear",
       "description": "What we are seeing here is a rapid shifting back to reality in the US auto industry.",
@@ -171,6 +185,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Clubic"
       },
+      "category": "tesla",
       "author": "Mélina LOUPIA",
       "title": "Les Tesla Bots vont avoir de la concurrence avec ces sex dolls bourrées d'IA promises pour être très réalistes",
       "description": "La course aux robots humanoïdes s'accélère. D'un côté, Tesla et ses Bots prometteurs. De l'autre, un géant chinois qui prépare des poupées nouvelle génération bardées d'intelligence artificielle. Ces dernières pourraient bien créer la surprise sur un marché e…",
@@ -184,6 +199,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Motley Fool Australia"
       },
+      "category": "apple",
       "author": "Sebastian Bowen",
       "title": "It's up 3,500%, but here's why I'm still not buying Nvidia stock",
       "description": "I wish I bought Nvidia in 2023, but I'm not buying it in 2024.\nThe post It's up 3,500%, but here's why I'm still not buying Nvidia stock appeared first on The Motley Fool Australia.",
@@ -197,6 +213,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "MarketWatch"
       },
+      "category": "microsoft",
       "author": "Quentin Fottrell",
       "title": "‘Her world is rocked’: A friend hit the jackpot, but her old friends are abandoning her one by one. Is there a cure for jealousy?",
       "description": "“Is this jealousy or a change in perceived status that has upended her friendships? Any ideas or cures?”",
@@ -210,6 +227,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Biztoc.com"
       },
+      "category": "apple",
       "author": "benzinga.com",
       "title": "Elon Musk Once Said 'Collapsing Birth Rate Is The Biggest Danger Civilization Faces:' He Has Fathered 12 Children To Date, Including One We Didn't Know About",
       "description": "Tesla and SpaceX CEO Elon Musk welcomed another child into his family, marking his third with Neuralink executive Shivon Zilis.\nWhat Happened: Zilis, who serves as Neuralink’s director of special projects, and Musk, had their third child earlier this year, re…",
@@ -223,6 +241,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "AutoExpress"
       },
+      "category": "microsoft",
       "author": "Tom Jervis",
       "title": "Behind the badge: Kia's new look and new approach",
       "description": "It's a new look and a new approach to customer service for the Korean brand. We visit Kia's flagship UK showroom to see how the ‘premium’ ethos works",
@@ -236,6 +255,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Turbo.fr"
       },
+      "category": "tesla",
       "author": "Maxime Duchemin",
       "title": "CONFIG – Audi RS e-Tron GT Performance : ça fait cher la fausse Porsche Taycan !",
       "description": "En début de semaine, Audi présentait son e-Tron GT restylée ! Hasard du calendrier, on configurait mercredi une Porsche Taycan Turbo S… Alors autant organiser un match, en s'occupant cette fois de la version aux 4 anneaux ! Pour jouer le jeu à fond, on a choi…",
@@ -249,6 +269,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Yahoo Entertainment"
       },
+      "category": "apple",
       "author": "Claire Boyte-White",
       "title": "How ‘Frugal’ Billionaire Elon Musk Splurges: An Inside Look at His $78 Million Private Jet",
       "description": "Elon Musk's comments about his frugal spending habits have been widely publicized, including that he stays in friends' spare rooms when working at Tesla's...",
@@ -262,6 +283,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Motor.ru"
       },
+      "category": "microsoft",
       "author": "Александр Пономарёв",
       "title": "Дубайская туристическая полиция получила электрический пикап Tesla Cybertruck",
       "description": "Дубайская туристическая полиция получила электрический пикап Tesla Cybertruck. В начале июня калифорнийская компания Unplugged Performance представила новый проект фирменного подразделения UP.FIT — на базе пикапа Tesla Cybertruck американские специалисты пост…",
@@ -275,6 +297,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Westernjournal.com"
       },
+      "category": "apple",
       "author": "Jack Davis",
       "title": "Nightmare Situation as Tesla Dies in Heatwave, Trapping Toddler Inside",
       "description": "\"When it works, it’s great. But when it doesn’t, it can be deadly,\" a Tesla owner says after an experience with a dead EV battery.",
@@ -288,6 +311,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Shiftdelete.net"
       },
+      "category": "microsoft",
       "author": "Ahmet Safa",
       "title": "Tesla rakiplerine müşteri kaptırdı! Rüzgar terse döndü",
       "description": "Bu içerik ilk olarak Tesla rakiplerine müşteri kaptırdı! Rüzgar terse döndü adresinde yayınlandı Teknoloji Haberleri - ShiftDelete.Net.",
@@ -301,6 +325,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Yahoo Entertainment"
       },
+      "category": "microsoft",
       "author": "David Nadelle",
       "title": "10 Best Upper-Class Cars in 2024",
       "description": "Everyone recognizes that second only to buying a house, purchasing a car is one of the biggest financial decisions you'll make. Yet, despite popular opinion ...",
@@ -314,6 +339,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Portfolio.hu"
       },
+      "category": "apple",
       "author": "Portfolio.hu",
       "title": "Melyik lehet a világ első 4000 milliárd dolláros cége?",
       "description": "Az Nvidia a héten letaszította a trónról a Microsoftot, ezzel pedig a világ legértékesebb cégévé vált, immáron pedig már három olyan nagy tőzsdei cég is van, melyek piaci értéke egyaránt 3000 milliárd dollár felett van. Az első vállalat azonban amely elérheti…",
@@ -327,6 +353,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "tagesschau.de"
       },
+      "category": "apple",
       "author": "Jacqueline Piwon, rbb",
       "title": "Abschiedsstimmung im Brandenburger Landtag",
       "description": "Im September wählt Brandenburg ein neues Parlament. Die aktuelle Kenia-Koalition wird es in der Form nicht mehr geben. Viele Abgeordnete verlassen den Landtag freiwillig, andere bangen um den Wiedereinzug ins Parlament. Von Jacqueline Piwon.",
@@ -340,6 +367,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "CleanTechnica"
       },
+      "category": "apple",
       "author": "Steve Hanley",
       "title": "Europe Battery Factory Plans Are In A Shambles",
       "description": "On June 20, 2024, Reuters reported some rather shocking news regarding BMW and its electric car plans. The headline read, “BMW cancels $2 billion battery cells contract with Northvolt.” The report said that BMW had cancelled a 2 billion euros  ($2.15 billion)…",
@@ -353,6 +381,7 @@ export class AppComponent implements OnInit {
         "id": "der-tagesspiegel",
         "name": "Der Tagesspiegel"
       },
+      "category": "apple",
       "author": "Der Tagesspiegel",
       "title": "Tesla kracht in Berliner Krankenhaus: Klinikpersonal versorgt Insassen direkt – Mutter und Neugeborenes im Auto",
       "description": "In Spandau fährt ein Tesla in die frühere Rettungsstelle des Waldkrankenhauses. Im Auto sitzt auch eine Frau mit ihrem zwei Tage alten Kind. Der Wagen soll „plötzlich stark beschleunigt“ haben.",
@@ -366,6 +395,7 @@ export class AppComponent implements OnInit {
         "id": "der-tagesspiegel",
         "name": "Der Tagesspiegel"
       },
+      "category": "apple",
       "author": "Der Tagesspiegel",
       "title": "Tesla kracht in Berliner Krankenhaus: Verletzte Insassen werden vom Klinikpersonal direkt versorgt",
       "description": "In Spandau fährt ein Auto in die frühere Rettungsstelle des Evangelischen Waldkrankenhauses. Der Unfall geht halbwegs glimpflich aus.",
@@ -379,6 +409,7 @@ export class AppComponent implements OnInit {
         "id": "der-tagesspiegel",
         "name": "Der Tagesspiegel"
       },
+      "category": "apple",
       "author": "Der Tagesspiegel",
       "title": "Tesla kracht in Berliner Krankenhaus: Mutter und Neugeborenes verletzt – machte der Wagen sich selbstständig?",
       "description": "In Spandau fährt ein Tesla in die frühere Rettungsstelle des Waldkrankenhauses. Im Auto sitzt auch eine Frau mit ihrem zwei Tage alten Kind. Der Wagen soll „plötzlich stark beschleunigt“ haben.",
@@ -392,6 +423,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Freethoughtblogs.com"
       },
+      "category": "apple",
       "author": "Mano Singham",
       "title": "Sacrificing functionality for style",
       "description": "I recently got a ride from a friend in his Tesla and he showed me the many electric features that have replaced formerly mechanical ones, like a button that when touched opens the door, rather than a latch that you pull to release the catch. Many of the famil…",
@@ -405,11 +437,12 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Freerepublic.com"
       },
+      "category": "apple",
       "author": "The Register (UK)",
       "title": "Tesla sued for 'systemic' racism at its Fremont, California plant",
       "description": "Yet another lawsuit was this week filed against Tesla citing a \"systemically … racially hostile work environment\" at the company's Fremont, California plant. This one's even widening the envelope to include similar allegations of bad behavior at Tesla's batte…",
       "url": "https://freerepublic.com/focus/f-news/4245989/posts",
-      "urlToImage": null,
+      "urlToImage": "null",
       "publishedAt": "2024-06-22T13:15:53Z",
       "content": "Skip to comments.\r\nTesla sued for 'systemic' racism at its Fremont, California plantThe Register (UK) ^\r\n | Fri 21 Jun 2024 //\r\n | Brandon Vigliarol\r\nPosted on 06/22/2024 6:15:53 AM PDT by Salman\r\nYe… [+4050 chars]"
     },
@@ -418,6 +451,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Electrek"
       },
+      "category": "tesla",
       "author": "Fred Lambert",
       "title": "Elon Musk haters vandalized dozens of Tesla Cybertrucks",
       "description": "Elon Musk haters have vandalized dozens of Tesla Cybertrucks being held ahead of delivery at a parking lot in Florida.\n\n\n\n more…",
@@ -431,6 +465,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Investing.com"
       },
+      "category": "tesla",
       "author": "Investing.com",
       "title": "SPROUT (NASDAQ:SPT) FRAUD ALERT: Sprout Social, Inc. Sued for Securities Fraud, Investors who Lost Money are Reminded to Contact BFA Law About the Lawsuit",
       "description": "SPROUT (NASDAQ:SPT) FRAUD ALERT: Sprout Social, Inc. Sued for Securities Fraud, Investors who Lost Money are Reminded to Contact BFA Law About the Lawsuit",
@@ -444,6 +479,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Investing.com"
       },
+      "category": "microsoft",
       "author": "Investing.com",
       "title": "CRM INVESTOR ALERT: Salesforce, Inc. (NYSE:CRM) is Being Investigated for Securities Fraud by BFA Law, Investors who Lost Money are Reminded to Contact the Firm",
       "description": "CRM INVESTOR ALERT: Salesforce, Inc. (NYSE:CRM) is Being Investigated for Securities Fraud by BFA Law, Investors who Lost Money are Reminded to Contact the Firm",
@@ -457,6 +493,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Investing.com"
       },
+      "category": "apple",
       "author": "Investing.com",
       "title": "TERADATA (NYSE:TDC) FRAUD ALERT: Teradata Corp. Sued for Securities Fraud, Investors who Lost Money are Reminded to Contact BFA Law About the Lawsuit",
       "description": "TERADATA (NYSE:TDC) FRAUD ALERT: Teradata Corp. Sued for Securities Fraud, Investors who Lost Money are Reminded to Contact BFA Law About the Lawsuit",
@@ -470,6 +507,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Investing.com"
       },
+      "category": "apple",
       "author": "Investing.com",
       "title": "VENTYX INVESTOR ALERT: Ventyx's (Nasdaq:VTYX) Board is Being Investigated for Insider Trading, Long-term Investors Are Encouraged to Contact the Firm for Details",
       "description": "VENTYX INVESTOR ALERT: Ventyx's (Nasdaq:VTYX) Board is Being Investigated for Insider Trading, Long-term Investors Are Encouraged to Contact the Firm for Details",
@@ -483,6 +521,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Investing.com"
       },
+      "category":"microsoft",
       "author": "Investing.com",
       "title": "CEREVEL (NASDAQ:CERE) INVESTOR ALERT: Cerevel's $45 Per Share Offer is Being Investigated by BFA Law, Shareholders are Encouraged to Contact the Firm",
       "description": "CEREVEL (NASDAQ:CERE) INVESTOR ALERT: Cerevel's $45 Per Share Offer is Being Investigated by BFA Law, Shareholders are Encouraged to Contact the Firm",
@@ -496,6 +535,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Investing.com"
       },
+      "category": "tesla",
       "author": "Investing.com",
       "title": "POWERSCHOOL (NYSE:PWSC) INVESTOR ALERT: PowerSchool's $22.80 Per Share Offer is Being Investigated by BFA Law, Shareholders are Encouraged to Contact the Firm",
       "description": "POWERSCHOOL (NYSE:PWSC) INVESTOR ALERT: PowerSchool's $22.80 Per Share Offer is Being Investigated by BFA Law, Shareholders are Encouraged to Contact the Firm",
@@ -509,6 +549,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Investing.com"
       },
+      "category": "apple",
       "author": "Investing.com",
       "title": "CAE INVESTOR ALERT: CAE, Inc. (NYSE:CAE) is Being Investigated for Securities Fraud by BFA Law, Investors who Lost Money are Reminded to Contact the Firm",
       "description": "CAE INVESTOR ALERT: CAE, Inc. (NYSE:CAE) is Being Investigated for Securities Fraud by BFA Law, Investors who Lost Money are Reminded to Contact the Firm",
@@ -522,6 +563,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Www.is.fi"
       },
+      "category": "tesla",
       "author": "Olli Tiihonen",
       "title": "Kun Perttu ja Sara karauttavat autoillansa huoltoasemalle, hämmästys on suurta: ”Oletteko laturia blokkaamassa?”",
       "description": "Tällaisia autoja ei liiemmin nähdä latauspaikoilla.",
@@ -535,6 +577,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Nacion.com"
       },
+      "category": "microsoft",
       "author": "Damián Arroyo C., La Nación / Argentina / GDA",
       "title": "Elon Musk revela su técnica infalible para contratar a los mejores talentos",
       "description": "Elon Musk comparte su técnica infalible para contratar talentos excepcionales. Descubra la pregunta clave que utiliza para identificar a los mejores candidatos.",
@@ -548,6 +591,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Epravda.com.ua"
       },
+      "category": "apple",
       "author": "Економічна правда",
       "title": "Міністр економіки Німеччини не вважає нові мита ЄС на китайські електромобілі покаранням",
       "description": "Міністр економіки Німеччини Роберт Хабек заявив, що запропоновані Європейським Союзом тарифи на китайські електромобілі не є \"покаранням\".",
@@ -561,6 +605,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Epravda.com.ua"
       },
+      "category": "apple",
       "author": "Экономическая правда",
       "title": "Министр экономики Германии не считает новые пошлины ЕС на китайские электромобили наказанием",
       "description": "Министр экономики Германии Роберт Хабек заявил, что предложенные Европейским Союзом тарифы на китайские электромобили не являются \"наказанием\".",
@@ -574,6 +619,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "ETF Daily News"
       },
+      "category": "apple",
       "author": "MarketBeat News",
       "title": "Fragasso Group Inc. Sells 104 Shares of Tesla, Inc. (NASDAQ:TSLA)",
       "description": "Fragasso Group Inc. lessened its position in Tesla, Inc. (NASDAQ:TSLA – Free Report) by 5.5% during the first quarter, according to the company in its most recent filing with the Securities & Exchange Commission. The fund owned 1,787 shares of the electric ve…",
@@ -587,6 +633,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Mail.ru"
       },
+      "category": "microsoft",
       "author": "София Глебездина",
       "title": "Какова жизнь с мозговым чипом и чем опасны ополаскиватели для рта? Дайджест",
       "description": "А также о новых функциях WhatsApp, нейросети, которая генерирует рецепты ядов и масштабном сбое работы соцсетей в России.\nВ WhatsApp появились новые функции для видеозвонков\nПользователям мессенджера WhatsApp скоро (предположительно, в следующем обновлении) с…",
@@ -600,6 +647,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Biztoc.com"
       },
+      "category": "tesla",
       "author": "businessinsider.com",
       "title": "Elon Musk predicts universal basic income will take off once AI replaces workers. Read his 8 best quotes about UBI",
       "description": "Elon Musk\nPatrick Pleul/AFP/Getty Images\nElon Musk sees universal basic income as a necessary response to automation eliminating human jobs.\nThe Tesla chief predicts there will be \"universal high income\" that will give people more free time.\nHere are Musk's e…",
@@ -613,6 +661,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Olhardigital.com.br"
       },
+      "category": "apple",
       "author": "Tamires Ferreira",
       "title": "Segundo elétrico da Xiaomi é visto nas ruas da China – EV mira na Tesla",
       "description": "Fotos vazadas mostraram veículo coberto andando pelas ruas da China \nO post Segundo elétrico da Xiaomi é visto nas ruas da China – EV mira na Tesla  apareceu primeiro em Olhar Digital.",
@@ -626,6 +675,7 @@ export class AppComponent implements OnInit {
         "id": "business-insider",
         "name": "Business Insider"
       },
+      "category": "microsoft",
       "author": "Theron Mohamed",
       "title": "Elon Musk predicts universal basic income will take off once AI replaces workers. Read his 8 best quotes about UBI.",
       "description": "The Tesla and SpaceX chief predicts a \"universal high income\" as AI replaces workers, giving them more freedom in how they spend time and money.",
@@ -639,6 +689,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Unwire.hk"
       },
+      "category": "apple",
       "author": "藍骨",
       "title": "Tesla 今年已裁員至少 14%　全球員工人數減至約 12 萬",
       "description": "根據 Tesla 內部記錄，該公司自 2023 年以來進行的大規模裁員已將全球員工人數（包括臨時工）縮減至 121,000 人左右，相較 2023 年底減少了 14% 以上。\nThe post Tesla 今年已裁員至少 14%　全球員工人數減至約 12 萬 appeared first on 香港 unwire.hk 玩生活．樂科技.",
@@ -652,6 +703,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "CNET"
       },
+      "category": "apple",
       "author": "Katie Collins",
       "title": "EV Charging vs. Gas: We Do the Math to See Which is Cheaper - CNET",
       "description": "Whether or not EV operating costs are actually cheaper than a gas-powered car is a hot debate on Reddit. We settle the debate with math and an EV expert.",
@@ -665,6 +717,7 @@ export class AppComponent implements OnInit {
         "id": "la-nacion",
         "name": "La Nacion"
       },
+      "category": "tesla",
       "author": "Federico González del Solar",
       "title": "Los viajes de Javier Milei por el mundo, con los premios personales como un atractivo adicional",
       "description": "El Presidente acumula millas a fuerza de distinciones y más encuentros informales que oficiales; Estados Unidos es su destino predilecto, pero también pone el foco en Europa",
@@ -678,6 +731,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Www.bnr.nl"
       },
+      "category": "tesla",
       "author": "BNR Webredactie",
       "title": "Importheffingen op Chinese auto’s leiden voorlopig niet tot prijsstijgingen",
       "description": "Tesla is voorlopig de enige autofabrikant die zijn prijzen verhoogt vanwege de importheffingen die de Europese Unie oplegt. Andere fabrikanten die in China produceren – zoals het Chinese BYD – kiezen er voorlopig voor de belasting op te vangen in hun winstmar…",
@@ -691,6 +745,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Biztoc.com"
       },
+      "category": "microsoft",
       "author": "finance.yahoo.com",
       "title": "Tesla Stock (NASDAQ:TSLA): 2 Catalysts That Indicate a Turnaround",
       "description": "Tesla (NASDAQ:TSLA) stock has performed poorly over the past 12 months due to several factors, ranging from strong competition in the EV space to CEO Elon Musk’s distractions from the company, all exacerbated by valuation concerns. However, I believe two shor…",
@@ -704,6 +759,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Cnbeta.com.tw"
       },
+      "category": "apple",
       "author": "ytzong",
       "title": "特斯拉今年裁员比例已超14% 马斯克全员信还透露一个信息",
       "description": "今年4月，特斯拉CEO马斯克宣布将进行大幅裁员，裁员比例超过10%。不过根据第一财经记者了解到的情况，这一裁员比例可能会高达20%。特斯拉今年以来的裁员比例仍在不断扩大。最新内部文件显示，该公司目前员工人数约为12.1万名，这较去年年底该公司超过14万名员工数量削减超过14%。\r\n\n今年4月，特斯拉CEO马斯克宣布将进行大幅裁员，裁员比例超过10%。不过根据第一财经记者了解到的情况，这一裁员比例可能会高达20%。在裁员的同时，马斯克还称要奖励表现出色的员工。6月17日，马斯克在一封发给全体员工的邮件中表示，特斯拉…",
@@ -717,6 +773,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Forbes"
       },
+      "category": "microsoft",
       "author": "Billy Bambrough, Senior Contributor, \n Billy Bambrough, Senior Contributor\n https://www.forbes.com/sites/billybambrough/",
       "title": "‘The Next Domino To Fall’—Tech Billionaire Primes Bitcoin For A Massive Price Shock",
       "description": "Tech billionaire Michael Dell has sparked wild speculation his computer company could follow MicroStrategy and Elon Musk’s Tesla into bitcoin...",
@@ -730,6 +787,7 @@ export class AppComponent implements OnInit {
         "id": "der-tagesspiegel",
         "name": "Der Tagesspiegel"
       },
+      "category": "apple",
       "author": "Der Tagesspiegel",
       "title": "Linke: Brandenburgs Linke-Chef schlägt Wagenknecht Rededuell vor",
       "description": "Die Linke steht in Brandenburg vor der Landtagswahl unter Druck. Landeschef Walter ruft die Partei zum Kämpfen auf, kritisiert das Bündnis Sahra Wagenknecht und wendet sich direkt an die Ex-Linke.",
@@ -743,6 +801,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "STERN.de"
       },
+      "category": "apple",
       "author": "STERN.de",
       "title": "Linke: Brandenburgs Linke-Chef schlägt Wagenknecht Rededuell vor",
       "description": "Die Linke steht in Brandenburg vor der Landtagswahl unter Druck. Landeschef Walter ruft die Partei zum Kämpfen auf, kritisiert das Bündnis Sahra Wagenknecht und wendet sich direkt an die Ex-Linke.",
@@ -756,6 +815,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Applesfera.com"
       },
+      "category": "microsoft",
       "author": "Isra Fdez",
       "title": "El \"silencio incómodo\" que utiliza Tim Cook en sus reuniones (y que Jeff Bezos y Elon Musk también aplican)",
       "description": "¿Puede el silencio mejorar la calidad de los debates? De hecho, puede ayudarte a ganarlos. O eso es lo que piensan algunos de los hombres más ricos y audaces del mundo, como son Tim Cook, Jeff Bezos o Elon Musk. De hecho, Steve Jobs era un maestro de esta her…",
@@ -769,7 +829,8 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "3dnews.ru"
       },
-      "author": null,
+      "category": "apple",
+      "author": "null",
       "title": "Tesla уволила 14 % работников по всему миру в этом году",
       "description": "В этом году автопроизводитель Tesla провёл значительное сокращение глобального персонала, численность которого, по данным ресурса CNBC, уменьшилась до чуть более 121 000 человек, включая временных работников, то есть более чем на 14 %. Источник изображения: T…",
       "url": "https://3dnews.ru/1106899/tesla-sokratila-v-etom-godu-14-globalnogo-personala",
@@ -782,11 +843,12 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Ritholtz.com"
       },
+      "category": "apple",
       "author": "Barry Ritholtz",
       "title": "10 Weekend Reads",
       "description": "What Frank Lloyd Wright tells us about late bloomers The celebrated architect enjoyed two periods of profound productivity — some 50 years apart. https://www.ft.com/content/7219b15b-c614-4a6b-9b5b-6405dc689cbf Roaring Kitty Is Playing With Fire: Influencer Ke…",
       "url": "https://ritholtz.com/2024/06/weekend-reads-620/",
-      "urlToImage": null,
+      "urlToImage": "null",
       "publishedAt": "2024-06-22T10:30:38Z",
       "content": "What Frank Lloyd Wright tells us about late bloomers The celebrated architect enjoyed two periods of profound productivity some 50 years apart. https://www.ft.com/content/7219b15b-c614-4a6b-9b5b-6405… [+4138 chars]"
     },
@@ -795,6 +857,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "GlobeNewswire"
       },
+      "category": "microsoft",
       "author": "Bleichmar Fonti & Auld",
       "title": "CRM INVESTOR ALERT: Salesforce, Inc. (NYSE:CRM) is Being Investigated for Securities Fraud by BFA Law, Investors who Lost Money are Reminded to Contact the Firm",
       "description": "Investors that suffered losses in their Salesforce, Inc. investment are encouraged to contact BFA Law about their rights.......",
@@ -808,6 +871,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "GlobeNewswire"
       },
+      "category": "tesla",
       "author": "Bleichmar Fonti & Auld",
       "title": "SPROUT (NASDAQ:SPT) FRAUD ALERT: Sprout Social, Inc. Sued for Securities Fraud, Investors who Lost Money are Reminded to Contact BFA Law About the Lawsuit",
       "description": "Investors that suffered losses in their Sprout Social, Inc. investment are encouraged to contact BFA Law before the July 12, 2024 Court deadline.......",
@@ -821,6 +885,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "GlobeNewswire"
       },
+      "category": "apple",
       "author": "Bleichmar Fonti & Auld",
       "title": "TERADATA (NYSE:TDC) FRAUD ALERT: Teradata Corp. Sued for Securities Fraud, Investors who Lost Money are Reminded to Contact BFA Law About the Lawsuit",
       "description": "Investors that suffered losses in their Teradata Corp. investment are encouraged to contact BFA Law before the August 13, 2024 Court deadline.......",
@@ -834,6 +899,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "GlobeNewswire"
       },
+      "category": "apple",
       "author": "Bleichmar Fonti & Auld",
       "title": "CEREVEL (NASDAQ:CERE) INVESTOR ALERT: Cerevel’s $45 Per Share Offer is Being Investigated by BFA Law, Shareholders are Encouraged to Contact the Firm",
       "description": "Cerevel Shareholders are encouraged to contact BFA Law about their rights relating to the upcoming merger.......",
@@ -847,6 +913,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "GlobeNewswire"
       },
+      "category": "tesla",
       "author": "Bleichmar Fonti & Auld",
       "title": "UIPATH (NYSE:PATH) FRAUD ALERT: UiPath, Inc. Sued for Securities Fraud by BFA Law, Investors who Lost Money are Reminded to Contact the Firm About the Lawsuit",
       "description": "Investors that suffered losses in their UiPath, Inc. investment are encouraged to contact BFA Law before August 19, 2024 Court deadline.......",
@@ -860,6 +927,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "GlobeNewswire"
       },
+      "category": "microsoft",
       "author": "Bleichmar Fonti & Auld",
       "title": "CAE INVESTOR ALERT: CAE, Inc. (NYSE:CAE) is Being Investigated for Securities Fraud by BFA Law, Investors who Lost Money are Reminded to Contact the Firm",
       "description": "Investors that suffered losses in their CAE, Inc. investment are encouraged to contact BFA Law firm about their rights.......",
@@ -873,6 +941,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "GlobeNewswire"
       },
+      "category": "microsoft",
       "author": "Bleichmar Fonti & Auld",
       "title": "POWERSCHOOL (NYSE:PWSC) INVESTOR ALERT: PowerSchool’s $22.80 Per Share Offer is Being Investigated by BFA Law, Shareholders are Encouraged to Contact the Firm",
       "description": "PowerSchool Shareholders are encouraged to contact BFA Law about their rights relating to the upcoming merger.......",
@@ -886,6 +955,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "GlobeNewswire"
       },
+      "category": "microsoft",
       "author": "Bleichmar Fonti & Auld",
       "title": "VENTYX INVESTOR ALERT: Ventyx’s (Nasdaq:VTYX) Board is Being Investigated for Insider Trading, Long-term Investors Are Encouraged to Contact the Firm for Details",
       "description": "Ventyx Shareholders are encouraged to contact BFA Law about its investigation into the Board’s insider trading allegations.......",
@@ -899,6 +969,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Aljazeera.net"
       },
+      "category": "apple",
       "author": "يمان الشريف",
       "title": "سبيس إكس تطلق قمرا صناعيا آخر للاتصالات يغطي القارة الأوروبية",
       "description": "أطلقت شركة صناعة تقنيات استكشاف الفضاء \"سبيس إكس\" صاروخ \"فالكون 9\" وعلى متنه القمر الصناعي \"أسترا 1 بي\"، والآن ينطلق القمر بشكل مستقل للوصول إلى ما يُعرف بـ\"المدار الجغرافي الثابت\".",
@@ -912,6 +983,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Biztoc.com"
       },
+      "category": "microsoft",
       "author": "futurism.com",
       "title": "Toddler Trapped in Scorching Tesla When Battery Dies",
       "description": "\"When that battery goes, you’re dead in the water.\"\nDeath Trap\nA 20-month-old girl was trapped inside a Tesla Model Y after the vehicle's battery died without warning — in the middle of an Arizona heat wave.\nAs local CBS-affiliated news station AZFamily repor…",
@@ -925,6 +997,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Securityaffairs.com"
       },
+      "category": "apple",
       "author": "Pierluigi Paganini",
       "title": "Experts found a bug in the Linux version of RansomHub ransomware",
       "description": "The RansomHub ransomware operators added a Linux encryptor to their arsenal, the version targets VMware ESXi environments. RansomHub ransomware operation relies on a new Linux version of the encrypted to target VMware ESXi environments. Although RansomHub onl…",
@@ -938,6 +1011,7 @@ export class AppComponent implements OnInit {
         "id": "business-insider",
         "name": "Business Insider"
       },
+      "category": "tesla",
       "author": "Tom Carter",
       "title": "How Chinese EV makers are slowly taking over the world",
       "description": "China's Tesla rivals, like BYD, are expanding rapidly in developing markets like Brazil, Mexico, and Southeast Asia.",
@@ -951,6 +1025,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Florida Today"
       },
+      "category": "tesla",
       "author": "Brooke Edwards, Florida Today",
       "title": "Falcon Heavy to launch from Cape Canaveral. Here's what to know about this SpaceX rocket.",
       "description": "Here's what to know about the SpaceX Falcon Heavy, which will launch once again from Florida on June 25.",
@@ -964,6 +1039,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Jornada.com.mx"
       },
+      "category": "apple",
       "author": "DEMOS, Desarrollo de Medios, S.A. de C.V.",
       "title": "Tensiones entre China y la UE podría traer una guerra comercial",
       "description": "Pekín. El Ministerio de Comercio chino afirmó ayer que la Unión Europea (UE) ha seguido intensificando las fricciones comerciales, lo que “puede desencadenar una guerra comercial. La responsabilidad recae enteramente en la UE”, afirmó un portavoz del minister…",
@@ -977,6 +1053,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Jornada.com.mx"
       },
+      "category": "apple",
       "author": "DEMOS, Desarrollo de Medios, S.A. de C.V.",
       "title": "BYD construirá nueva fábrica en México; implica crear 10 mil empleos",
       "description": "El fabricante chino de vehículos eléctricos BYD se encuentra en un proceso de análisis para definir en que estado construirá su planta en México, la cual creará alrededor de 10 mil puestos de trabajo. Así lo indicó Jorge Vallejo, director general de BYD en Mé…",
@@ -990,6 +1067,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Xataka.com"
       },
+      "category": "apple",
       "author": "Rubén Andrés",
       "title": "El salario medio anual que cobran los empleados de las \"siete magníficas” de la tecnología, explicado en un gráfico",
       "description": "Trabajar en alguna de las denominadas “siete magníficas” es un sueño para muchos. No solo por los proyectos de vanguardia e innovación en los que están involucradas estas empresas tecnológicas, sino por los buenos salarios que se cobra en ellas.\n<!-- BREAK 1 …",
@@ -1003,6 +1081,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Investing.com"
       },
+      "category": "microsoft",
       "author": "Investing.com",
       "title": "EV wave still on horizon, but smaller than prior tsunami",
       "description": "EV wave still on horizon, but smaller than prior tsunami",
@@ -1016,6 +1095,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Investing.com"
       },
+      "category": "apple",
       "author": "Investing.com",
       "title": "EV wave still on horizon, but smaller than prior tsunami",
       "description": "EV wave still on horizon, but smaller than prior tsunami",
@@ -1029,6 +1109,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Sapo.pt"
       },
+      "category": "apple",
       "author": "Rui Neto",
       "title": "Baterias estão prestes a sofrer uma grande revolução graças à sujeita do costume: a IA",
       "description": "Nos últimos meses, temos visto como as fabricantes têm aplicado a IA a diferentes produtos, incluindo smartphones. Empresas como a Tesla, a Samsung, e a Google estão a integrá-la para melhorar a edição de...",
@@ -1042,6 +1123,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Ferra.ru"
       },
+      "category": "apple",
       "author": "Андрей Кадуков",
       "title": "Маск заявил, что мощность суперкластера Tesla превысит 500 МВт",
       "description": "Илон Маск прокомментировал изданию The Elec видео, снятое беспилотником для демонстрации строительства суперкластера Tesla, мощность которого в настящее время составляют 130 МВт. Но в течение полутора лет мощность суперкластера будет расширена до 500 МВт.",
@@ -1055,6 +1137,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Forbes"
       },
+      "category": "apple",
       "author": "James Morris, Contributor, \n James Morris, Contributor\n https://www.forbes.com/sites/jamesmorris/",
       "title": "Test-Driving The Ocean: Does Fisker Deserve To Emerge From Bankruptcy?",
       "description": "As Fisker enters Chapter 11 bankruptcy protection, the discounts are heavy on the Ocean. Is it worth gambling on the company recovering?",
@@ -1068,6 +1151,7 @@ export class AppComponent implements OnInit {
         "id": "focus",
         "name": "Focus"
       },
+      "category": "apple",
       "author": "FOCUS online",
       "title": "Elon Musk greift durch - Tesla wirft 14 Prozent seiner Mitarbeiter raus",
       "description": "Der E-Auto-Pionier Tesla reagiert auf schwäche Absatzzahlen: Der Konzern reduziert seine weltweite Belegschaft bereits um mindestens 14 Prozent in diesem Jahr.",
@@ -1081,6 +1165,7 @@ export class AppComponent implements OnInit {
         "id": "focus",
         "name": "Focus"
       },
+      "category": "apple",
       "author": "FOCUS online",
       "title": "Elon Musk greift durch - Tesla wirft 14 Prozent seiner Mitarbeiter raus",
       "description": "Der E-Auto-Pionier Tesla reagiert auf schwäche Absatzzahlen: Der Konzern reduziert seine weltweite Belegschaft bereits um mindestens 14 Prozent in diesem Jahr.",
@@ -1094,6 +1179,7 @@ export class AppComponent implements OnInit {
         "id": "focus",
         "name": "Focus"
       },
+      "category": "apple",
       "author": "FOCUS online",
       "title": "Elon Musk greift durch - Tesla könnte dieses Jahr bis zu 28.000 Mitarbeiter entlassen",
       "description": "Der E-Auto-Pionier Tesla reagiert auf schwächere Absatzzahlen: Der Konzern reduzierte seine weltweite Belegschaft bereits um mindestens 14 Prozent in diesem Jahr.",
@@ -1107,6 +1193,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Investing.com"
       },
+      "category": "apple",
       "author": "Investing.com",
       "title": "CATL's TENER Energy Storage System Unveiled at ees Europe 2024, Showcasing Breakthrough Technology",
       "description": "CATL's TENER Energy Storage System Unveiled at ees Europe 2024, Showcasing Breakthrough Technology",
@@ -1120,7 +1207,8 @@ export class AppComponent implements OnInit {
         "id": "t3n",
         "name": "T3n"
       },
-      "author": null,
+      "category": "apple",
+      "author": "null",
       "title": "E-Auto: Worauf du beim Kauf wirklich achten solltest",
       "description": "Was ist die wichtigste Maßeinheit für Elektroautos? Kilowatt Ladeleistung, Kilowattstunden Batteriekapazität? Falsch. Es ist ein alter Bekannter, allerdings in neuem Kleid.\nweiterlesen auf t3n.de",
       "url": "https://t3n.de/news/e-auto-kauf-worauf-wirklich-achten-1630677/",
@@ -1130,9 +1218,10 @@ export class AppComponent implements OnInit {
     },
     {
       "source": {
-        "id": null,
+        "id": "null",
         "name": "Frandroid"
       },
+      "category":"tesla",
       "author": "Jean-Baptiste Passieux",
       "title": "Les prometteuses voitures électriques de BMW seront (un peu) moins chères grâce à ces deux modèles",
       "description": "BMW vient de confirmer l’arrivée de deux nouvelles voitures électriques compactes dans sa future gamme “Neue Klasse”. De quoi profiter de la charge express et des belles autonomies promises par cette nouvelle plateforme pour un prix (un peu) plus réduit. Voic…",
@@ -1146,6 +1235,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Ilgiornale.it"
       },
+      "category": "microsoft",
       "author": "redazione@ilgiornale-web.it (Veronica Nicosia)",
       "title": "Nel regno di Nvidia. Ecco come un microchip segna le sorti del globo",
       "description": "L'azienda fondata da Jen-Hsun Huang ha chiuso il 2023 con un aumento dei profitti del 400% e nel secondo trimestre del 2024 cresce di un altro 265%",
@@ -1159,6 +1249,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Sapo.pt"
       },
+      "category": "apple",
       "author": "Pedro Simões",
       "title": "Xiaomi prepara sucessor do SU7 e o X11 já foi fotografado a circular na rua",
       "description": "O sucesso do Xiaomi SU7 veio mostrar como a marca pode apostar em novos mercados e garantir uma posição importante de mercado. Para dar continuidade a este sucesso a Xiaomi lançará um novo modelo,...",
@@ -1172,6 +1263,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Www.df.cl"
       },
+      "category": "tesla",
       "author": "Sandra Burgos",
       "title": "Lo que debes saber al terminar la semana | Pausa en el recorte de tasa, mayor inflación y ajuste al alza en crecimiento",
       "description": "El efecto del alza de las tarifas eléctricas marcó la discusión en el Congreso, luego que se conociera el IPoM de junio. En el mundo, los ojos estuvieron puestos en Nvidia que logró la mayor capitalización bursátil de la historia.",
@@ -1185,6 +1277,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Hibridosyelectricos.com"
       },
+      "category": "apple",
       "author": "Diego Gutiérrez",
       "title": "Stellantis ensamblará baterías para eléctricos a escasos 10 km de la Puerta del Sol de Madrid",
       "description": "Tras los primeros pasos dados el pasado 6 de mayo, las nuevas instalaciones de ensamblaje de baterías de Stellantis Madrid empiezan a trabajar a velocidad de crucero, tras meses de trabajo intenso en los que se han construido las nuevas instalaciones y se ha …",
@@ -1198,6 +1291,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Hotnews.ro"
       },
+      "category": "tesla",
       "author": "Alexandra Coșlea",
       "title": "China a investit o sumă astronomică în industria mașinilor electrice. „Guvernele occidentale au pierdut timpul”",
       "description": "Amploarea sprijinului guvernamental reprezintă 18,8% din vânzările totale de maşini electrice între 2009 şi 2023, a declarat Scott Kennedy, directorul pentru afaceri şi economie chineză la CSIS, notează News.ro El a observat că raportul dintre…",
@@ -1211,11 +1305,12 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Ithome.com"
       },
-      "author": null,
+      "category": "microsoft",
+      "author": "null",
       "title": "黄仁勋封神时刻，英伟达市值全球第一背后，一个创造历史的精明刀客与营销鬼才",
       "description": "经此一战，黄仁勋彻底封神！\r\n作者 |  ZeR0编辑 |  漠影6 月 19 日，英伟达再创历史，总市值超越微软，问鼎全球第一。这是市场史上最快最耀眼的崛起。两年时间，英伟达市值狂飙突进，从 4000 亿、1 万亿飞速攀升到 3 万亿美元，又用短短 14 天从市值第三跃居第二再冲到第一，在微软苹果股价双双下跌时独自领涨，完成了一场酣畅淋漓的史诗级突袭。英伟达创始人黄仁勋不愧是科技界预言家，连英文名 Jensen 都充满命运的暗示，作为芯片业如雷贯耳的“皮衣刀客”，带领“核弹厂”从硅谷轰炸到华尔街，让华人创办的企…",
       "url": "https://www.ithome.com/0/776/958.htm",
-      "urlToImage": null,
+      "urlToImage": "null",
       "publishedAt": "2024-06-22T07:40:12Z",
       "content": "|  ZeR0\r\n |  \r\n6 19 \r\n4000 1 3 14 \r\n Jensen \r\n GPU \r\n21 21 AI \r\n AI AI AI \r\n 31 \r\n CUDA\r\n01.\r\n0 GPU CUDA AI \r\niPhoneiPadMacBook Air GPU \r\n2008 \r\n0 \r\n1993 3D Direct3D\r\n Xbox ATI\r\n AMD AMD CPU AMD PC A… [+1009 chars]"
     },
@@ -1224,6 +1319,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Faz.net"
       },
+      "category": "apple",
       "author": "Dennis Kremer",
       "title": "Javier Milei im Porträt: Der Provokateur aus Argentinien",
       "description": "Der argentinische Präsident Javier Milei gibt den Anarchisten. Mit Radikalreformen will er dem Kapitalismus freien Lauf lassen. Jetzt kommt er nach Deutschland.",
@@ -1237,6 +1333,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Biztoc.com"
       },
+      "category": "apple",
       "author": "techcrunch.com",
       "title": "Tesla makes Musk best-paid CEO of all time and Fisker bites the dust",
       "description": "Elon Musk just convinced Tesla shareholders to approve his $56 billion pay package, making him the highest-paid CEO in history — assuming he can dodge a Delaware judge’s disapproval. And where better to stage this circus than Texas, home of big everything, in…",
@@ -1250,11 +1347,12 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "[Removed]"
       },
-      "author": null,
+      "category": "microsoft",
+      "author":"null",
       "title": "[Removed]",
       "description": "[Removed]",
       "url": "https://removed.com",
-      "urlToImage": null,
+      "urlToImage": "null",
       "publishedAt": "1970-01-01T00:00:00Z",
       "content": "[Removed]"
     },
@@ -1263,6 +1361,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Android.com.pl"
       },
+      "category": "microsoft",
       "author": "Łukasz Pająk",
       "title": "Przetestowałem BMW iX2 i śmiało mogę powiedzieć, że to rewolucja",
       "description": "Przed wami test BMW iX2 xDrive30, czyli najmocniejszej, elektrycznej odmiany drugiej generacji modelu X2. Modelu, który dotychczas nie był jakoś wybitnie traktowany przez producenta, a wręcz można było odnieść wrażenie, że zapomniany. Jednak debiut samochodu,…",
@@ -1276,6 +1375,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Android.com.pl"
       },
+      "category": "microsoft",
       "author": "Łukasz Pająk",
       "title": "Przetestowałem BMW iX2 i śmiało mogę powiedzieć, że to rewolucja",
       "description": "Przed wami test BMW iX2 xDrive30, czyli najmocniejszej, elektrycznej odmiany drugiej generacji modelu X2. Modelu, który dotychczas nie był jakoś wybitnie traktowany przez producenta, a wręcz można było odnieść wrażenie, że zapomniany. Jednak debiut samochodu,…",
@@ -1289,6 +1389,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Yahoo Entertainment"
       },
+      "category": "tesla",
       "author": "TipRanks",
       "title": "Tesla Stock (NASDAQ:TSLA): 2 Catalysts That Indicate a Turnaround",
       "description": "Tesla (NASDAQ:TSLA) stock has performed poorly over the past 12 months due to several factors, ranging from strong competition in the EV space to CEO Elon...",
@@ -1302,6 +1403,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Smartworld.it"
       },
+      "category": "apple",
       "author": "Antonio Lepore",
       "title": "Xiaomi vuole sfidare Tesla Model Y e le prime foto della nuova auto lo confermano!",
       "description": "A pochi mesi dal lancio della SU7, Xiaomi sta lavorando sulla nuova auto, che sarà un SUV compatto: ecco le prime foto spia scattate in Cina.\r\nL'articolo Xiaomi vuole sfidare Tesla Model Y e le prime foto della nuova auto lo confermano! sembra essere il primo…",
@@ -1315,6 +1417,7 @@ export class AppComponent implements OnInit {
         "id": null,
         "name": "Hibridosyelectricos.com"
       },
+      "category": "tesla",
       "author": "Alejandro González",
       "title": "El precio del último SUV de Renault hará que este híbrido, de 4,4 litros de consumo, siga siendo un éxito",
       "description": "El Renault Symbioz es un SUV híbrido del segmento B enfocado, principalmente, en ofrecer todo el espacio posible dentro de sus posiblidades. Recientemente hemos conocido que ha establecido su precio de partida 32.026 euros con promociones, un precio alto para…",
@@ -1324,7 +1427,16 @@ export class AppComponent implements OnInit {
       "content": "El Renault Symbioz es un SUV híbrido del segmento B enfocado, principalmente, en ofrecer todo el espacio posible dentro de sus posiblidades. Recientemente hemos conocido que ha establecido su precio … [+4335 chars]"
     }
   ];
-
+  /*
+  categorieSelectionnee: string = '';
+  dateSelectionnee: string = '';
+  resultatsFilters: Objet[] = [];
+  filtrerResultats() {
+    this.resultatsFilters = this.articles.filter(item =>
+      item.category === this.categorieSelectionnee &&
+      item.publishedAt === this.dateSelectionnee
+    );
+  }
   /*function searchElement(category:string,publishedAt:string) {
     const filteredEvents = articles.filter(event => event.category === category && event.publishedAt=== publishedAt);
   console.log(filteredEvents);
