@@ -1,45 +1,25 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ArticleComponent } from './article/article.component';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { FormControl, FormGroup } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
-interface Objet {
-  category: string;
-  publishedAt: string;
-  source: any;
-  author: string;
-  title: string;
-  description: string;
-  url: any;
-  urlToImage: string;
-  content: string;
-}
-@NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-ReactiveFormsModule,
-]
-})
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ArticleComponent],
+  imports: [
+    RouterOutlet, 
+    ArticleComponent, 
+    ReactiveFormsModule
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit {
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
-  title(title: any) {
-    throw new Error('Method not implemented.');
-  }
+export class AppComponent {
 
-  articles: Objet[] = [
+  constructor() {}
+  
+  articlesDatabase : any [] = [
     {
       "source": {
         "id": null,
@@ -1441,46 +1421,29 @@ export class AppComponent implements OnInit {
       "content": "El Renault Symbioz es un SUV híbrido del segmento B enfocado, principalmente, en ofrecer todo el espacio posible dentro de sus posiblidades. Recientemente hemos conocido que ha establecido su precio … [+4335 chars]"
     }
   ];
-  articleForm: FormGroup = new FormGroup(
-    {
-      category: new FormControl(''),
-      publishedAt: new FormControl(''),
 
-    }
-  );
+  articles: any [] = [];
+
+  articleForm: FormGroup = new FormGroup({
+    category: new FormControl(''),
+    publishedAt: new FormControl('')
+  });
+
   loading = false;
   submitted = false;
-  constructor(private formBuilder: FormBuilder,
-
-  ) { }
+  
   get f() {
     return this.articleForm.controls;
   }
+
   onSubmit() {
     this.submitted = true;
-
-
     let category = this.f["category"].value;
     let publishedAt = this.f["publishedAt"].value;
 
-    console.log(category, publishedAt);
-  }
-  /*
-    categorieSelectionnee: string = '';
-    dateSelectionnee: string = '';
-    resultatsFilters: Objet[] = [];
-    filtrerResultats() {
-      this.resultatsFilters = this.articles.filter(item =>
-        item.category === this.categorieSelectionnee &&
-        item.publishedAt === this.dateSelectionnee
+    this.articles = this.articlesDatabase.filter(item => 
+      item.category === category 
+        && publishedAt === item.publishedAt.substr(0, 10)
       );
-    }
-    /*function searchElement(category:string,publishedAt:string) {
-      const filteredEvents = articles.filter(event => event.category === category && event.publishedAt=== publishedAt);
-    console.log(filteredEvents);
-    }*/
-  /* ngOnInit(): void {
- 
-   }*/
-
+  }
 }
